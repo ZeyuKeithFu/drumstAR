@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/freeView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="150dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/column1"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/congal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/congam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/congah"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/column2"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/clap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/openhihat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/tom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/column3"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/snare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/closedhihat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/kick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/column4"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/cowbell"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/clave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+            <Button
+                android:id="@+id/maraca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_weight="1"
+                android:gravity="fill"
+                android:onClick="playSample" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
