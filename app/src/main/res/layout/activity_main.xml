@@ -2,21 +2,135 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/freeView"
+    android:id="@+id/liveMode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/pads"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right"
+        android:gravity="center"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="150dp"
         android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/bpmText"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/topTools"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:textSize="20sp"
+                android:text="BPM : 40" />
+
+            <TextView
+                android:id="@+id/repeatText"
+                android:layout_width="wrap_content"
+                android:layout_above="@+id/bottomTools"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Repeat : Single" />
+
+            <TextView
+                android:id="@+id/bpmRange"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="160\n\n\n\n\n\n40" />
+
+            <TextView
+                android:id="@+id/repeatRange"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="4\n\n3\n\n2\n\n1" />
+
+            <SeekBar
+                android:id="@+id/repeatTimes"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:max="3"
+                android:progress="0"
+                android:rotation="270"
+                android:translationX="20dp" />
+
+            <SeekBar
+                android:id="@+id/bpmBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:max="120"
+                android:rotation="270"
+                android:translationX="-20dp" />
+
+            <LinearLayout
+                android:id="@+id/topTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/modeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Go AR" />
+
+                <Button
+                    android:id="@+id/recordButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Rec" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/repeatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Node Repeat"
+                    android:textOff="NR off"
+                    android:textOn="NR on" />
+
+                <ToggleButton
+                    android:id="@+id/fullButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Full Level"
+                    android:textOff="FL off"
+                    android:textOn="FL on" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/column1"
@@ -31,8 +145,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/congam"
@@ -40,8 +153,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/congah"
@@ -49,8 +161,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
         </LinearLayout>
 
@@ -67,8 +178,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/openhihat"
@@ -76,8 +186,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/tom"
@@ -85,8 +194,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
         </LinearLayout>
 
         <LinearLayout
@@ -102,8 +210,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/closedhihat"
@@ -111,8 +218,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/kick"
@@ -120,8 +226,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
         </LinearLayout>
 
@@ -138,8 +243,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/clave"
@@ -147,8 +251,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
             <Button
                 android:id="@+id/maraca"
@@ -156,8 +259,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
-                android:gravity="fill"
-                android:onClick="playSample" />
+                android:gravity="fill" />
 
         </LinearLayout>
     </LinearLayout>
