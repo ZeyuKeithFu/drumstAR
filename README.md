@@ -17,6 +17,7 @@ Sometimes your inspirations just come out with no advance and you don't want to 
    
 ### AR Mode
 With AR mode, you can take the drum machine anywhere with a platform (a table, ground, wall etc,.) and play it with your hands. Here is a reference [demo effect](https://www.youtube.com/watch?v=Zas5JCjQb40&feature=youtu.be). Function still on building.
+* Device must support ```ARCore by Google``` for using AR mode, a list of avaliable devices can be found [here](https://developers.google.com/ar/discover/supported-devices).   
    
 ## User Story
 * As a ```DJ/drummer```, I need a more portable device to perform live drum and no device is more portable than your on mobile phone.
