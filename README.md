@@ -13,10 +13,13 @@ Sometimes your inspirations just come out with no advance and you don't want to 
    
 **The user interface looks like this:**   
    
-![](https://github.com/ec500-software-engineering/project-04-mobiledrummachine5/blob/master/Assets/UI.png)
+![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/live_mode.png)
    
 ### AR Mode
-With AR mode, you can take the drum machine anywhere with a platform (a table, ground, wall etc,.) and play it with your hands. Here is a reference [demo effect](https://www.youtube.com/watch?v=Zas5JCjQb40&feature=youtu.be). Function still on building.
+With AR mode, you can take the drum machine anywhere with a platform (a table, ground, wall etc,.) where drum pads will attach once platform is detected, and then you play it with your hands. Here is a reference [demo effect](https://www.youtube.com/watch?v=Zas5JCjQb40&feature=youtu.be). Functions still on building.   
+
+![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/AR_mode.png)
+
 * Device must support ```ARCore by Google``` for using AR mode, a list of avaliable devices can be found [here](https://developers.google.com/ar/discover/supported-devices).   
    
 ## User Story
