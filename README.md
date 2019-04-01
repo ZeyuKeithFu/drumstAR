@@ -21,7 +21,7 @@ With AR mode, you can take the drum machine anywhere with a platform (a table, g
 
 ![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/AR_mode.png)
 
-* Device must support ```ARCore by Google``` for using AR mode, a list of avaliable devices can be found [here](https://developers.google.com/ar/discover/supported-devices).   
+* Device must support ```ARCore by Google``` for using AR mode, here is a list of [avaliable devices](https://developers.google.com/ar/discover/supported-devices).   
    
 ## User Story
 * As a ```DJ/drummer```, I need a more portable device to perform live drum and no device is more portable than your on mobile phone.
