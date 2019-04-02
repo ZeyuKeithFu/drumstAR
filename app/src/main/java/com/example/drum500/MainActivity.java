@@ -1,6 +1,7 @@
 package com.example.drum500;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -87,10 +88,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onTouch(final View v, MotionEvent event) {
 
             // Set pressure sensitivity
-            AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-            int maxVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-            float currentVolumn = event.getPressure() * (float)maxVolumn;
-            //audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int)currentVolumn, 0);
+//            AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+//            int maxVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+//            float currentVolumn = event.getPressure() * (float)maxVolumn;
+//            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int)currentVolumn, 0);
 
             // Set node repeat
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -166,10 +167,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        View main = findViewById(R.id.liveMode);
+        // Hide top bar
+        View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        main.setSystemUiVisibility(uiOptions);
+        decorView.setSystemUiVisibility(uiOptions);
 
         // Set UI elements
         switchMode = (Button) findViewById(R.id.modeButton);
@@ -273,11 +274,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (recording) {
                     recording = false;
-                    record.setText("◉");
+                    record.setText("●");
                 } else {
                     recording = true;
                     record.setText("■");
                 }
+            }
+        });
+
+
+        // Switch to AR mode
+        switchMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ArActivity.class));
             }
         });
 
