@@ -14,9 +14,15 @@
         android:layout_centerHorizontal="true"
         android:text="Back to live" />
 
+    <!--<com.dlazaro66.qrcodereaderview.QRCodeReaderView-->
+        <!--android:id="@+id/qrcodeView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
     <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
         android:id="@+id/ux_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.drum500;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -96,7 +97,9 @@ public class MainActivity extends AppCompatActivity {
             // Set node repeat
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
+                // Test pressure
                 Log.i("Info", "pressed");
+
                 id = v.getId();
                 padID = v.getResources().getResourceEntryName(id);
                 resourceID = getResources().getIdentifier(padID, "raw", getPackageName());

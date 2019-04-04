@@ -1,0 +1,183 @@
+{
+  materials: [
+    {
+      name: '_10377_KettleDrumdrumSG',
+      parameters: [
+        {
+          baseColor: 'KettleDrum',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_10377_KettleDrummetalSG',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.44,
+            0.44,
+            0.44,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_10377_KettleDrumrubberSG',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.16,
+            0.16,
+            0.16,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_10377_KettleDrumbrassSG',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.56999999999999995,
+            0.28000000000000003,
+            0,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_10377_KettleDrumtransparentSG',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.16,
+            0.16,
+            0.16,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: 0.71999999999999997,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_10377_KettleDrumdrumstickSG',
+      parameters: [
+        {
+          baseColor: 'KettleDrum',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 0.25,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/10377_KettleDrum.obj',
+    name: '10377_KettleDrum',
+    recenter: 'root',
+    scale: 0.0095359999999999993,
+  },
+  samplers: [
+    {
+      file: 'sampledata/KettleDrum.jpg',
+      name: 'KettleDrum',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'KettleDrum.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

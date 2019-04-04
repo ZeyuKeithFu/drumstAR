@@ -30,7 +30,7 @@
                 android:layout_below="@+id/topTools"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:textSize="20sp"
                 android:text="BPM : 40" />
 
@@ -40,7 +40,7 @@
                 android:layout_above="@+id/bottomTools"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="20dp"
                 android:text="Repeat : Single" />
 
             <TextView
@@ -91,18 +91,22 @@
                 <Button
                     android:id="@+id/modeButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:text="Go AR" />
 
                 <Button
                     android:id="@+id/recordButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="28sp"
                     android:textColor="@android:color/holo_red_dark"
-                    android:text= "◉" />
+                    android:text= "●" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,8 +120,10 @@
                 <ToggleButton
                     android:id="@+id/repeatButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="Node Repeat"
                     android:textOff="NR off"
                     android:textOn="NR on" />
@@ -125,7 +131,9 @@
                 <ToggleButton
                     android:id="@+id/fullButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:text="Full Level"
                     android:textOff="FL off"
