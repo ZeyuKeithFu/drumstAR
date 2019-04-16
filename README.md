@@ -17,11 +17,11 @@ Sometimes your inspirations just come out with no advance and you don't want to 
    
    
 ### AR Mode
-AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the image of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere.
+AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the [image](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/drum1.jpg) of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere. For the Unity development part, see [UnityDev](https://github.com/ZeyuKeithFu/Drum500/tree/UnityDev) branch.   
 
-![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/ARmode.png)
+![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/ARmode.png)   
 
-* Drum pads are built with ```virtual buttons```. To play the drum, simply by cover the virtual button region (just like you push a real button) and the corresponding drum sound will be played.
+* Drum pads are built with ```virtual buttons```. To play the drum, simply by cover the virtual button region (just like you push a real button) and the corresponding drum sound will be played.   
    
 ## User Story
 * As a ```DJ/drummer```, I need a more portable device to perform live drum and no device is more portable than your own mobile phone.
@@ -29,6 +29,6 @@ AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://dev
 * As a ```music lover```, I want to play with drums without buying an expensive physical drum machine.
    
 ## Technology Selection
-* **IDE** : Android Studio
-* **Lowest Android Version** : ```7.0``` (For AR capability)
-* **APIs** : ARCore, Unity for Android, MediaPlayer, MediaRecorder
+* **IDE** : ```Android Studio```(Android activities), ```Unity 3D```(3D AR model), ```Visual Studio```(C#)
+* **Supported devices** : Android devices with lowest *API level 26* (```Android 8.0.0 Oreo```)
+* **APIs** : Unity for Android, Vuforia for Android, MediaPlayer, MediaRecorder
