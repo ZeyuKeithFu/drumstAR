@@ -5,7 +5,7 @@ A mobile drum machine with a basic live mode and an AR mode. Play with drums at 
 ### Live Mode
 Live mode provides 12 drum pads with 12 different drum sounds.   
    
-![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/live_mode.png)   
+![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/liveMode.png)   
    
 Some useful functions are included:
 * **Node repeat**   
@@ -19,7 +19,7 @@ Sometimes your inspirations just come out with no advance and you don't want to 
 ### AR Mode
 With AR mode, you can take the drum machine anywhere with a platform (a table, ground, wall etc,.) where drum pads will attach once platform is detected, and then you play it with your hands. Here is a reference [demo effect](https://www.youtube.com/watch?v=Zas5JCjQb40&feature=youtu.be). Functions still on building.   
 
-![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/AR_mode.png)
+![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/ARmode.png)
 
 * Device must support ```ARCore by Google``` for using AR mode, here is a list of [avaliable devices](https://developers.google.com/ar/discover/supported-devices).   
    
