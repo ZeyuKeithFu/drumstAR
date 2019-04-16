@@ -17,11 +17,11 @@ Sometimes your inspirations just come out with no advance and you don't want to 
    
    
 ### AR Mode
-With AR mode, you can take the drum machine anywhere with a platform (a table, ground, wall etc,.) where drum pads will attach once platform is detected, and then you play it with your hands. Here is a reference [demo effect](https://www.youtube.com/watch?v=Zas5JCjQb40&feature=youtu.be). Functions still on building.   
+AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the image of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere.
 
 ![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/ARmode.png)
 
-* Device must support ```ARCore by Google``` for using AR mode, here is a list of [avaliable devices](https://developers.google.com/ar/discover/supported-devices).   
+* Drum pads are built with ```virtual buttons```. To play the drum, simply by cover the virtual button region (just like you push a real button) and the corresponding drum sound will be played.
    
 ## User Story
 * As a ```DJ/drummer```, I need a more portable device to perform live drum and no device is more portable than your own mobile phone.
