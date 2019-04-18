@@ -5,7 +5,7 @@ A mobile drum machine with a basic live mode and an AR mode. Play with drums at 
 ### Live Mode
 Live mode provides 12 drum pads with 12 different drum sounds.   
    
-![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/liveMode.png)   
+![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/liveMode.png)   
    
 Some useful functions are included:
 * **Node repeat**   
@@ -19,10 +19,10 @@ Sometimes your inspirations just come out with no advance and you don't want to 
 ### AR Mode
 AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the [image](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/drum1.jpg) of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere. **THE IMAGE IS A DRUM MACHINE!!!**
 
-![](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/ARmode.png)   
+![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/ARmode.png)   
 
 * Drum pads are built with ```virtual buttons```. To play the drum, simply by cover the virtual button region (just like you push a real button) and the corresponding drum sound will be played.   
-* For the reason of size and scale, only three drum pads (hihat, snare and kick) are add to AR activity. For the Unity development part, see [UnityDev](https://github.com/ZeyuKeithFu/Drum500/tree/UnityDev) branch. The further step of developing AR activity could be working on:
+* For the reason of size and scale, only three drum pads (hihat, snare and kick) are add to AR activity. For the Unity development part, see [UnityDev](https://github.com/ZeyuKeithFu/drumstAR/tree/UnityDev) branch. The further step of developing AR activity could be working on:
    + Adding more drum pads to the scene.
    + Adding animation on different part of the drum kit when hitting a drum pad.
    + ...
