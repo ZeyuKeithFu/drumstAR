@@ -1,11 +1,17 @@
 package com.aznable.VuDrum;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.media.AudioManager;
+import android.media.MediaRecorder;
+import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -14,17 +20,54 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class MainActivity extends AppCompatActivity {
 
+    // ************************* Set global variables ************************* //
 
-    // ***************** Set global variables ***************** //
+    // Recording parameters
+    MediaRecorder recorder;
+
+    // Requesting permission to RECORD_AUDIO
+    private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
+    private static final int REQUEST_WRITE_PERMISSION = 115;
+    private boolean permissionToRecordAccepted = false;
+    private String [] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case REQUEST_RECORD_AUDIO_PERMISSION:
+                permissionToRecordAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                break;
+        }
+        if (!permissionToRecordAccepted ) finish();
+
+    }
 
     // Mediaplayer parameters
     int id;
+    int maxVolumn;
     String padID;
     int resourceID;
     Map<String, Boolean> stopped = new HashMap() {{
@@ -80,25 +123,24 @@ public class MainActivity extends AppCompatActivity {
     TextView currentRepeat;
 
 
-    // ***************** Set onTouch method ***************** //
+    // ********************** Set onTouch playing method ********************** //
 
     View.OnTouchListener playSample = new View.OnTouchListener() {
         @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(final View v, MotionEvent event) {
 
-            // Set pressure sensitivity
-//            AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-//            int maxVolumn = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-//            float currentVolumn = event.getPressure() * (float)maxVolumn;
-//            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int)currentVolumn, 0);
-
             // Set node repeat
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
-                // Test pressure
-                Log.i("Info", "pressed");
+                // Set pressure sensitivity
+                float pressure = event.getPressure();
+                float volumnToPlay = (float) maxVolumn * pressure;
+                float volumn = (float) (1 - (Math.log((float) maxVolumn - volumnToPlay) / Math.log((float) maxVolumn)));
+                Log.i("Volumn", Float.toString(volumnToPlay));
 
+
+                // Set drum sound
                 id = v.getId();
                 padID = v.getResources().getResourceEntryName(id);
                 resourceID = getResources().getIdentifier(padID, "raw", getPackageName());
@@ -112,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
                             while (!stopped.get(padID)) {
                                 try {
                                     drumPlayer = MediaPlayer.create(v.getContext(), resourceID);
+                                    if (!fl)
+                                        drumPlayer.setVolume(volumn, volumn);
+
                                     drumPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                         @Override
                                         public void onCompletion(MediaPlayer mp) {
@@ -133,8 +178,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     }.start();
+
                 } else {
                     drumPlayer = MediaPlayer.create(v.getContext(), resourceID);
+                    if (!fl)
+                        drumPlayer.setVolume(volumn, volumn);
                     drumPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
@@ -153,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
-                Log.i("Info", "released");
                 stopped.put(padID, true);
             }
 
@@ -162,8 +209,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
-    // ***************** Set onCreate activity ***************** //
+    // ************************* Set onCreate activity ************************* //
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -174,6 +220,10 @@ public class MainActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
+        // Get max volumn
+        AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        maxVolumn = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
 
         // Set UI elements
         switchMode = (Button) findViewById(R.id.modeButton);
@@ -244,6 +294,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        // Set pads
         pad1.setOnTouchListener(playSample);
         pad2.setOnTouchListener(playSample);
         pad3.setOnTouchListener(playSample);
@@ -278,21 +330,53 @@ public class MainActivity extends AppCompatActivity {
                 if (recording) {
                     recording = false;
                     record.setText("●");
+
+                    recorder.stop();
+                    recorder.release();
+                    Toast.makeText(MainActivity.this, "Recording stopped.", Toast.LENGTH_SHORT).show();
+
                 } else {
+                    // Ask for permission
+                    if(!hasPermissions(getApplicationContext(), permissions)){
+                        ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+                        ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_WRITE_PERMISSION);
+                    }
                     recording = true;
                     record.setText("■");
+
+                    // Start recording
+                    recorder = new MediaRecorder();
+
+                    recorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+                    recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+                    recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+                    String file_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) + "/drumstAR";
+                    File storage_path = new File(file_path);
+                    if (!storage_path.exists())
+                        storage_path.mkdir();
+                    recorder.setOutputFile(file_path + "/demo.3gp");
+
+                    try {
+                        recorder.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(MainActivity.this, "Recording failed!!!Check permission.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    recorder.start();
+                    Toast.makeText(MainActivity.this, "Recording start...", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
 
-        // Switch to AR mode
+        // Switch to instruction mode
         switchMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, UnityPlayerActivity.class));
+                startActivity(new Intent(MainActivity.this, InstructionActivity.class));
+                finish();
             }
         });
-
     }
 }

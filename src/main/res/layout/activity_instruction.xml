@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InstructionActivity">
+
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="Start AR" />
+
+    <TextView
+        android:id="@+id/topText"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:background="@android:color/darker_gray"
+        android:text="AR Drum" />
+
+    <TextView
+        android:id="@+id/insTitle"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topText"
+        android:textSize="24sp"
+        android:text="    Instructions" />
+
+    <TextView
+        android:id="@+id/insText"
+        android:layout_below="@+id/insTitle"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="      ● Point camera at target to get drum kit and virtual drum pads.\n      ● Tap on virtual drum pads to play drum sounds." />
+
+    <TextView
+        android:id="@+id/targetTitle"
+        android:layout_below="@+id/insText"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="    Target" />
+
+    <ImageView
+        android:id="@+id/targetImage"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startButton"
+        android:layout_below="@+id/targetTitle"
+        android:layout_weight="1"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/drum1" />
+
+    <TextView
+        android:id="@+id/targetText"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="250dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/targetTitle"
+        android:layout_marginTop="8dp"
+        android:layout_alignLeft="@+id/targetImage"
+        android:text="  Tips:\n  • Click on the image to share or print.\n  • Gray scale image can also be detected.\n  • Better performance with an A4 paper size image." />
+
+
+</RelativeLayout>

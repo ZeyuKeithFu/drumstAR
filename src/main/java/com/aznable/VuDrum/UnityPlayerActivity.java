@@ -36,6 +36,7 @@ public class UnityPlayerActivity extends Activity
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(UnityPlayerActivity.this, MainActivity.class));
                 finish();
             }
         });
