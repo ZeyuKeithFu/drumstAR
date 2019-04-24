@@ -17,7 +17,7 @@ Sometimes your inspirations just come out with no advance and you don't want to 
    
    
 ### AR Mode
-AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the [image](https://github.com/ZeyuKeithFu/Drum500/blob/master/assets/drum1.jpg) of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere. **THE IMAGE IS A DRUM MACHINE!!!**
+AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the [image](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/drum1.jpg) of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere. **THE IMAGE IS A DRUM MACHINE!!!**
 
 ![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/ARmode.png)   
 
