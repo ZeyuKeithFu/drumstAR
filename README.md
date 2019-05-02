@@ -5,7 +5,7 @@ A mobile drum machine with a basic live mode and an AR mode. Play with drums at 
 ### Live Mode
 Live mode provides 12 drum pads with 12 different drum sounds.   
    
-![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/liveMode.png)   
+![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/livemode.gif)   
    
 Some useful functions are included:
 * **Node repeat**   
