@@ -1,7 +1,8 @@
 # drumstAR🌟
-An Android drum machine application with a live mode and an AR scene activity. Basic drum machine functions of node repeat, sensitive drum pad and recording are also included. Final project for EC500 Software Engineering.
+[![Build Status](https://travis-ci.org/ZeyuKeithFu/drumstAR.svg?branch=master)](https://travis-ci.org/ZeyuKeithFu/drumstAR)
+   
 ## Description
-A mobile drum machine with a basic live mode and an AR mode. Play with drums at any time and be a rockstar! All the sampled drum sounds are from [Ableton Live 10 Lite](https://www.ableton.com/en/products/live-lite/). 
+A mobile drum machine with a basic live mode and an AR mode. Basic drum machine functions of node repeat, sensitive drum pad and recording are also included. Play with drums at any time and be a rockstar! All the sampled drum sounds are from [Ableton Live 10 Lite](https://www.ableton.com/en/products/live-lite/). Final project for EC500 Software Engineering.
 ### Live Mode
 Live mode provides 12 drum pads with 12 different drum sounds.   
    
