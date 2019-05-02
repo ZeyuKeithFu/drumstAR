@@ -1,3 +1,5 @@
 language: android
 
-chmod +x gradlew
+- run:
+    name: chmod permissions
+    command: chmod +x ./gradlew
