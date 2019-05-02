@@ -1,5 +1,4 @@
 language: android
 
-- run:
-    name: chmod permissions
-    command: chmod +x ./gradlew
+before_install:
+ - chmod +x gradlew
