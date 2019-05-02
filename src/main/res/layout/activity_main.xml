@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/liveMode"
+    android:background="@android:color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -26,11 +27,12 @@
 
             <TextView
                 android:id="@+id/bpmText"
+                android:textColor="@android:color/holo_orange_dark"
                 android:layout_width="wrap_content"
                 android:layout_below="@+id/topTools"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="28dp"
                 android:textSize="20sp"
                 android:text="BPM : 40" />
 
@@ -39,13 +41,15 @@
                 android:layout_width="wrap_content"
                 android:layout_above="@+id/bottomTools"
                 android:layout_centerHorizontal="true"
+                android:textColor="@android:color/holo_orange_dark"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="28dp"
                 android:text="Repeat : Single" />
 
             <TextView
                 android:id="@+id/bpmRange"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/holo_orange_dark"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
@@ -54,6 +58,7 @@
             <TextView
                 android:id="@+id/repeatRange"
                 android:layout_width="wrap_content"
+                android:textColor="@android:color/holo_orange_dark"
                 android:layout_alignParentRight="true"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
@@ -66,6 +71,9 @@
                 android:layout_width="match_parent"
                 android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
+                android:thumbTint="@android:color/holo_orange_dark"
+                android:progressBackgroundTint="@android:color/holo_orange_light"
+                android:progressTint="@android:color/holo_orange_dark"
                 android:max="3"
                 android:progress="0"
                 android:rotation="270"
@@ -74,6 +82,9 @@
             <SeekBar
                 android:id="@+id/bpmBar"
                 android:layout_width="match_parent"
+                android:thumbTint="@android:color/holo_orange_dark"
+                android:progressBackgroundTint="@android:color/holo_orange_light"
+                android:progressTint="@android:color/holo_orange_dark"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:max="120"
@@ -84,6 +95,7 @@
                 android:id="@+id/topTools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
@@ -93,7 +105,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
+                    android:textColor="@android:color/holo_orange_dark"
                     android:gravity="center"
+                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
                     android:text="Go AR" />
 
@@ -103,6 +117,7 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:backgroundTint="@android:color/black"
                     android:gravity="center"
                     android:textSize="28sp"
                     android:textColor="@android:color/holo_red_dark"
@@ -114,13 +129,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:background="@android:color/holo_orange_dark"
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
                 <ToggleButton
                     android:id="@+id/repeatButton"
                     android:layout_width="wrap_content"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColorHint="@android:color/holo_orange_dark"
                     android:layout_height="60dp"
+                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -131,9 +150,12 @@
                 <ToggleButton
                     android:id="@+id/fullButton"
                     android:layout_width="wrap_content"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColorHint="@android:color/holo_orange_dark"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:backgroundTint="@android:color/black"
                     android:layout_weight="1"
                     android:text="Full Level"
                     android:textOff="FL off"
@@ -153,6 +175,8 @@
                 android:id="@+id/congal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />
@@ -161,6 +185,8 @@
                 android:id="@+id/congam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />
@@ -169,6 +195,8 @@
                 android:id="@+id/congah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />
@@ -186,6 +214,8 @@
                 android:id="@+id/clap"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />
@@ -194,6 +224,8 @@
                 android:id="@+id/openhihat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />
@@ -201,6 +233,8 @@
             <Button
                 android:id="@+id/tom"
                 android:layout_width="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
@@ -219,6 +253,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_weight="1"
                 android:gravity="fill" />
 
@@ -228,6 +264,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:gravity="fill" />
 
             <Button
@@ -235,6 +273,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_weight="1"
                 android:gravity="fill" />
 
@@ -252,12 +292,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_weight="1"
                 android:gravity="fill" />
 
             <Button
                 android:id="@+id/clave"
+                android:background="@drawable/drumpad"
                 android:layout_width="match_parent"
+                android:layout_margin="6dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
@@ -267,6 +311,8 @@
                 android:id="@+id/maraca"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:background="@drawable/drumpad"
                 android:layout_gravity="fill"
                 android:layout_weight="1"
                 android:gravity="fill" />

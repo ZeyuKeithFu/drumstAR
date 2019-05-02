@@ -164,13 +164,15 @@ public class MainActivity extends AppCompatActivity {
                                             mp.release();
                                         }
                                     });
-                                    if (drumPlayer.isPlaying()) {
-                                        drumPlayer.reset();
-                                        drumPlayer.release();
-                                        drumPlayer.start();
-                                    } else {
-                                        drumPlayer.start();
-                                    }
+                                    drumPlayer.start();
+                                    // Trash code
+//                                    if (drumPlayer.isPlaying()) {
+//                                        drumPlayer.reset();
+//                                        drumPlayer.release();
+//                                        drumPlayer.start();
+//                                    } else {
+//                                        drumPlayer.start();
+//                                    }
                                     Thread.sleep((long) interval);
                                 } catch (Exception e) {
                                     e.printStackTrace();
