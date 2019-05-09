@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">VuDrum</string>
     <string name="game_view_content_description">Game view</string>
+    <string name="back"><![CDATA[< Back]]></string>
 </resources>

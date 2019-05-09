@@ -1,8 +1,11 @@
 package com.aznable.VuDrum;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.icu.text.SimpleDateFormat;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
 import android.os.Environment;
@@ -16,6 +19,7 @@ import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
@@ -25,7 +29,9 @@ import android.widget.ToggleButton;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -211,12 +217,77 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    // ******************** Record Option ******************** //
+
+    // Choose record options
+    private void chooseRecordOpt(){
+
+        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+        builder.setTitle("Record Option");
+        String[] items = {"View repository", "Create new record"};
+
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        openDemoList();
+                        break;
+                    case 1:
+                        startRecording();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    // Open RecorderActivity
+    private void openDemoList(){
+        Intent demoListIntent = new Intent(MainActivity.this, RecorderActivity.class);
+        startActivity(demoListIntent);
+        finish();
+    };
+
+    // Start Recording
+    private void startRecording(){
+        recording = true;
+        record.setText("■");
+        // Start recording
+        recorder = new MediaRecorder();
+
+        recorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+        recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        String file_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).toString() + "/drumstAR";
+        File storage_path = new File(file_path);
+        String timeStamp = new SimpleDateFormat("yyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        if (!storage_path.exists())
+            storage_path.mkdir();
+        recorder.setOutputFile(file_path + "/" + timeStamp + ".mp3");
+
+        try {
+            recorder.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(MainActivity.this, "Recording failed!!!Check permission.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        recorder.start();
+        Toast.makeText(MainActivity.this, "Recording start...", Toast.LENGTH_SHORT).show();
+    }
+
+
     // ************************* Set onCreate activity ************************* //
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         // Hide top bar
         View decorView = getWindow().getDecorView();
@@ -329,6 +400,7 @@ public class MainActivity extends AppCompatActivity {
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (recording) {
                     recording = false;
                     record.setText("●");
@@ -343,32 +415,53 @@ public class MainActivity extends AppCompatActivity {
                         ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
                         ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_WRITE_PERMISSION);
                     }
-                    recording = true;
-                    record.setText("■");
+                    //AlertDialog comes out
+                    chooseRecordOpt();
 
-                    // Start recording
-                    recorder = new MediaRecorder();
-
-                    recorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
-                    recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-                    recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                    String file_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) + "/drumstAR";
-                    File storage_path = new File(file_path);
-                    if (!storage_path.exists())
-                        storage_path.mkdir();
-                    recorder.setOutputFile(file_path + "/demo.3gp");
-
-                    try {
-                        recorder.prepare();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Toast.makeText(MainActivity.this, "Recording failed!!!Check permission.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    recorder.start();
-                    Toast.makeText(MainActivity.this, "Recording start...", Toast.LENGTH_SHORT).show();
                 }
             }
+//                if (recording) {
+//                    recording = false;
+//                    record.setText("●");
+//
+//                    recorder.stop();
+//                    recorder.release();
+//                    Toast.makeText(MainActivity.this, "Recording stopped.", Toast.LENGTH_SHORT).show();
+//
+//                } else {
+//                    // Ask for permission
+//                    if(!hasPermissions(getApplicationContext(), permissions)){
+//                        ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+//                        ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_WRITE_PERMISSION);
+//                    }
+//                    recording = true;
+//                    record.setText("■");
+//
+//                    // Start recording
+//                    recorder = new MediaRecorder();
+//
+//                    recorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+//                    recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+//                    recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//                    String file_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) + "/drumstAR";
+//                    File storage_path = new File(file_path);
+//                    if (!storage_path.exists())
+//                        storage_path.mkdir();
+//                    recorder.setOutputFile(file_path + "/demo.3gp");
+//
+//                    try {
+//                        recorder.prepare();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(MainActivity.this, "Recording failed!!!Check permission.", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                    recorder.start();
+//                    Toast.makeText(MainActivity.this, "Recording start...", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(MainActivity.this, RecorderActivity.class));
+//                    finish();
+//                }
+//            }
         });
 
 

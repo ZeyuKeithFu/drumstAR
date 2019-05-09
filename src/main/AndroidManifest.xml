@@ -16,7 +16,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -41,10 +42,26 @@
         android:icon="@mipmap/app_icon"
         android:label="drumstAR"
         android:theme="@style/UnityThemeSelector">
-        <activity android:name=".InstructionActivity"
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.aznable.VuDrum.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
+
+        <activity
+            android:name=".RecorderActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
         </activity>
+        <activity
+            android:name=".InstructionActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"
@@ -67,6 +84,7 @@
                 android:value="true" />
         </activity>
 
+        <meta-data android:name="com.google.ar.core.min_apk_version" android:value="28" />
         <meta-data
             android:name="unity.build-id"
             android:value="8e692d6b-866a-4b10-bd37-47b5619b1884" />

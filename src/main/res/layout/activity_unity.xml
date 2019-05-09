@@ -15,6 +15,11 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:foregroundTint="@android:color/transparent"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:text="BACK" />
