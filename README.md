@@ -14,8 +14,11 @@ In a real live, you may want a fixed drum sequence where drums are repeating in 
 * **Force sensitive drum**   
 You may expect different responces from the drum when you hit a real drum with different forces. And just like real drum, the drum pads in live mode are also force sensitive. The volumn of drum sounds varies corresponding to how hard you hit them.
 * **Record and save**   
-Sometimes your inspirations just come out with no advance and you don't want to miss them. Record your genius by click the record button and save them to local. You can review them so that you won't forget.   
+Sometimes your inspirations just come out with no advance and you don't want to miss them. Record your genius by click the record button and save them to local. You can review them so that you won't forget. The following image shows the recording activity where you can view and play your recorded audio clips.   
    
+![](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/record.png)
+     
+     
    
 ### AR Mode
 AR mode is built in [Unity](https://unity.com/), work with [Vuforia](https://developer.vuforia.com/) AR engine. Once the [image](https://github.com/ZeyuKeithFu/drumstAR/blob/master/assets/drum1.jpg) of drum in this application is detected, you will have your drum kit all set. The single piece of drum image, which is absolutely light and portable, will be your new drum machine and you can take it anywhere. **THE IMAGE IS A DRUM MACHINE!!!**    
