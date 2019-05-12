@@ -1,15 +1,11 @@
 package com.aznable.VuDrum;
 
 import android.Manifest;
-import android.content.ContentProvider;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -21,9 +17,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RecorderActivity extends AppCompatActivity {
 
@@ -69,7 +65,7 @@ public class RecorderActivity extends AppCompatActivity {
         Log.i("Files", path);
         File directory = new File(path);
         File[] files = directory.listFiles();
-        Log.i("Files", "Size: "+ files.length);
+        Arrays.sort(files);
 
         // Set arrayAdapter
         tracks = new ArrayList<>();
@@ -94,15 +90,19 @@ public class RecorderActivity extends AppCompatActivity {
                 File music = new File(tracksPath.get(position));
                 String type = "audio/*";
                 Uri musicUri;
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    musicUri = FileProvider.getUriForFile(getApplicationContext(), "com.aznable.VuDrum.provider", music);
+                    musicUri = FileProvider.getUriForFile(getApplicationContext(), "com.aznable.fileprovider", music);
+                    getApplicationContext().grantUriPermission("com.aznable.VuDrum", musicUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 } else {
                     musicUri = Uri.fromFile(music);
                 }
+
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.setDataAndType(musicUri, type);
-                startActivity(intent);
+                setResult(255);
+                startActivityForResult(intent, 255);
             }
         });
 

@@ -3,7 +3,7 @@
     <paths>
         <external-path
             name="name"
-            path="."/>
+            path="/Music/drumstAR/"/>
     </paths>
 
 </resources>
