@@ -3,6 +3,10 @@
    
 ## Description
 A mobile drum machine with a live mode and an AR mode. Basic drum machine functions of node repeat, sensitive drum pad and recording are also included. Play with drums at any time and be a rockstar! All the sampled drum sounds are from [Ableton Live 10 Lite](https://www.ableton.com/en/products/live-lite/). Final project for EC500 Software Engineering.
+   
+<a href="https://play.google.com/store/apps/details?id=com.aznable.VuDrum" target="_blank">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
+   
 ### Live Mode
 Live mode provides 12 drum pads with 12 different drum sounds.   
    
